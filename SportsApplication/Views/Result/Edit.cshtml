@@ -1,0 +1,54 @@
+﻿@model SportsApplication.Models.EditAthleteResult
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h3>CHANGE DATA FOR ATHLETE</h3>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="result.id" />
+            <input asp-for="result.test_id" type="hidden" />
+            <div class="form-group">
+                <select required asp-for="result.user_id" class="form-control">
+                   
+                    <option value="-1" selected disabled>choose</option>
+                    @foreach (var temp in Model.athletes)
+                    {
+
+                        <option value="@temp.Id">@temp.UserName</option>
+                    }
+
+                </select>
+            </div>  
+            <div class="form-group">
+                <label asp-for="result.distance" class="control-label"></label>
+                <input asp-for="result.distance" class="form-control" />
+                <span asp-validation-for="result.distance" class="text-danger"></span>
+            </div>
+            
+                <input asp-for="result.Fitness" type="hidden"/>
+
+               
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn border-dark col-5" />
+            </div>
+        </form>
+    </div>
+    
+</div>
+<a asp-controller="Result"  asp-action="Delete" asp-route-id="@Model.result.id" class="btn border-dark">Delete Athlete From Test</a>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+@if(ViewBag.Message != null)
+{
+<h2>@ViewBag.Message</h2>
+    <h2>Please Enter Valid Athlete</h2>
+}
+

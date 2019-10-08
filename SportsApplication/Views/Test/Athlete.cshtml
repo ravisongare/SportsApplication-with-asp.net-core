@@ -1,0 +1,25 @@
+﻿@model IEnumerable<SportsApplication.Models.AthlteDetail>
+@{
+    ViewData["Title"] = "Athlete Deatails";
+}
+
+<h1>Athlete Details</h1>
+
+<div class="">
+<table class="table">
+    <tr>
+        <th>Type</th>
+        <th>Date</th>
+        <th>Detail</th>
+    </tr>
+    @foreach (var temp in Model)
+    {
+    <tr>
+        <td> @temp.type</td>
+        <td> @temp.Date</td>
+        <td> <a asp-action="AthleteTestDetail" asp-route-id="@temp.resultId"> Detail</a></td>
+    </tr>
+    }
+
+    </table>
+</div>

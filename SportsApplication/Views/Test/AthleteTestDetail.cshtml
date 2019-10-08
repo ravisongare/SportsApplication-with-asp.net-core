@@ -1,0 +1,21 @@
+﻿@model SportsApplication.Models.Result
+@{
+    ViewData["Title"] = "AthleteTestDetail";
+}
+
+<h1>AthleteTestDetail</h1>
+
+<dl class="row">
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.distance)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.distance)
+    </dd>
+    <dt class="col-sm-2">
+        @Html.DisplayNameFor(model => model.Fitness)
+    </dt>
+    <dd class="col-sm-10">
+        @Html.DisplayFor(model => model.Fitness)
+    </dd>
+</dl>

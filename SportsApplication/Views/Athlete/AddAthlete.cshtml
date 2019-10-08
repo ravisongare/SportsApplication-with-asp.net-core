@@ -1,0 +1,40 @@
+﻿@model SportsApplication.Models.AddAthlete
+@{
+    ViewData["Title"] = "AddAthlete";
+}
+
+<h1>AddAthlete</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" action="AddAthlete">
+            <input asp-for="@Model.result.test_id" type="hidden" />
+            <div>
+                Name
+                <select required asp-for="@Model.result.user_id" class="form-control">
+                    <option value="" selected disabled>--Select user--</option>
+                    @foreach (var temp in Model.athlete)
+                    {
+                        <option value="@temp.Id">@temp.UserName</option>
+                    }
+                </select>
+                <div class="form-group">
+                    <label asp-for="@Model.result.distance" class="control-label"></label>
+                    <input asp-for="@Model.result.distance" class="form-control" />
+                    <span asp-validation-for="@Model.result.distance" value="23" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+
+                <input type="submit" value="Save" />
+            </div>
+        </form>
+    </div>
+</div>
+@if (ViewBag.Message != null)
+{
+    <h1>@ViewBag.Message</h1>
+    <h2>Plese enter valid Athlte</h2>
+}
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<SportsApplication.Models.Test>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.count)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.type)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.date
+                </td>
+                <td>
+                    @item.count
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.id" class="text-decoration-none">@item.type</a>
+                </td>
+                @*<td>
+                        <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+                    </td>*@
+            </tr>
+        }
+    </tbody>
+
+
+</table>
+<a asp-controller="Administration" asp-action="CreateRole" class="btn btn-primary">Create New Role</a>

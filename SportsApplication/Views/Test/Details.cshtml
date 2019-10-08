@@ -1,0 +1,51 @@
+﻿@model IEnumerable<SportsApplication.Models.Detail>
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h3 class="page-hero d-flex align-items-center justify-content-center">@ViewData["TestType"] D. @ViewData["Date"]</h3>
+
+<div>
+
+
+    
+    <table class=" table page-hero d-flex align-items-center justify-content-center">
+        <tr>
+            <th>Ranking</th>
+            <th>Distance</th>
+            <th>Fitness</th>
+        </tr>
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            <tr>
+                <td>
+                    <a asp-controller="Result" asp-action="Edit" asp-route-id="@Model.ElementAt(i).resultId" class="text-decoration-none" style="color:black"> @(i + 1). @Model.ElementAt(i).name</a>
+                </td>
+                <td>
+                    @Model.ElementAt(i).distance
+                <td>
+                    @Model.ElementAt(i).fitness
+                </td>
+            </tr>
+
+        }
+
+    </table>
+    <h6 class="page-hero d-flex align-items-center justify-content-center">(Click on player to change data)</h6>
+
+    <br>
+    <div class="page-hero d-flex align-items-center justify-content-center">
+        <a asp-controller="Athlete" asp-action="AddAthlete" asp-route-id="@ViewData["id"]" class=" btn border-dark">ADD NEW ATHLELE TO TEST</a>
+    </div>
+    <br>
+    <div class="page-hero d-flex align-items-center justify-content-center">
+        <a asp-action="Delete" asp-route-id="@ViewData["id"]" class=" btn border-dark">DELETE TEST</a>
+    </div>
+
+    <div>
+        @*<a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |*@
+        <a asp-action="Index">Back to List</a>
+    </div>
+    
+</div>

@@ -1,0 +1,42 @@
+﻿@model SportsApplication.Models.Result
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Result</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.user_id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.user_id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.test_id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.test_id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.distance)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.distance)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fitness)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fitness)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
